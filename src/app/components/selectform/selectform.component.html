@@ -1,0 +1,38 @@
+<div class="container p-5">
+    <section>
+        <div class="row p-5">
+            <div class="col-md-12">
+                <div class="p-5">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title>เลือกสาขาที่ต้องการสมัคร</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="p-5">
+                                <mat-label>เลือกสาขาที่ต้องการสมัคร</mat-label>
+                                <mat-select class="form-control" id="major" name="majorno" [(ngModel)]="majorno">
+                                    <!-- <mat-option value="01">วิชาชีพการแพทย์แผนไทย มาตรา 12(2)(ก)</mat-option> -->
+                                    <mat-option value="02">วิชาชีพการแพทย์แผนไทย มาตรา 12(2)(ข)</mat-option>
+                                    <mat-option value="03">วิชาชีพการแพทย์แผนไทย มาตรา 12(2)(ประยุกต์)</mat-option>
+                                </mat-select>
+                            </div>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="row">
+                                <div class="col-md-12 text-right">
+                                    <div class="p-4 pl-5" align="end">
+                                        <button mat-raised-button color="primary" [disabled]="!majorno" (click)="selected()">
+                    <i class="fa fa-save"></i> ยืนยัน</button>&nbsp;
+                                        <button mat-raised-button color="warn" (click)="cancle()">
+                    <i class="fa fa-close"></i> ยกเลิก
+                  </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

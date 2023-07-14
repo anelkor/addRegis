@@ -1,0 +1,94 @@
+<div class=" p-5">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title><i class="fa fa-users"></i> กรอกข้อมูลเพื่อสมัครเข้าร่วมโครงการฯ</mat-card-title>
+                    <mat-card-subtitle class="pl-3 ">กรอกข้อมูลผู้สมัคร</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for=""> <font style="font-weight: bold;">หมายเลขบัตรประชาชน:</font>  {{idcard}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="">เลือกคำนำหน้า</label>
+                                <mat-select class="form-control " id="prename" name="prename" [(ngModel)]="prename" [hidden]="isCheckInput">
+                                    <mat-option value="001">นาย</mat-option>
+                                    <mat-option value="002">นาง</mat-option>
+                                    <mat-option value="003">น.ส.</mat-option>
+                                </mat-select>
+
+                                <input [hidden]="!isCheckInput" type="text" class="form-control" [(ngModel)]="prename" [disabled]="isCheckInput">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">ชื่อ</label>
+                                <input type="text" class="form-control" [(ngModel)]="fname" [disabled]="isCheckInput">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">สกุล</label>
+                                <input type="text" class="form-control" [(ngModel)]="lname" [disabled]="isCheckInput"></div>
+
+                        </div>
+                        <div class="row py-3 pt-4">
+                            <div class="col-md-6">
+
+
+                                <mat-label [hidden]="isDisSelect">เลือกสาขา</mat-label>
+                                <mat-select class="form-control " id="major" name="majorno" [(ngModel)]="majorno" [hidden]="isDisSelect">
+                                    <mat-option value="01">วิชาชีพการแพทย์แผนไทย มาตรา 12(2)(ก)</mat-option>
+                                    <mat-option value="02">วิชาชีพการแพทย์แผนไทย มาตรา 12(2)(ข)</mat-option>
+                                    <mat-option value="03">วิชาชีพการแพทย์แผนไทย มาตรา 12(2)(ข)(ประยุกต์)</mat-option>
+                                </mat-select>
+                                <label [hidden]="!isDisSelect" style="font-weight: bold;">{{major}}</label>
+                            </div>
+                        </div>
+                        <!-- <div class="row pt-4">
+                          <div class="col-md-4">
+                              <section class="example-section">
+                                  <h4><i class="fa fa-book"></i> เลือกวิชา:</h4>
+                                  <div *ngFor="let data of course_num; let i = index ">
+                                      {{data.c_name}} {{data.c_no}}
+                                      <td><button type="button" class="btn btn-primary" id="add" (click)="addCourse(data)">  เพิ่ม  </button></td>
+                                      <button type="button" class="btn btn-warning" color="red" (click)="deleteCourse(i)"> ลบ </button>
+
+                                  </div>
+                              </section>
+                          </div>
+                      </div> -->
+                        <div class="row pt-4">
+                            <div class="col-md-4">
+                                <section class="example-section">
+                                    <h4><i class="fa fa-book"></i> เลือกวิชา:</h4>
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="MED" (change)="onCheckInp('MED')" [disabled]="dMED">เวชกรรมไทย</mat-checkbox>
+                                    </p>
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="MAS" (change)="onCheckInp('MAS')" [disabled]="dMAS">การนวดไทย</mat-checkbox>
+                                    </p>
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="PHA" (change)="onCheckInp('PHA')" [disabled]="dPHA">เภสัชกรรมไทย</mat-checkbox>
+                                    </p>
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="MID" (change)="onCheckInp('MID')" [disabled]="dMID">ผดุงครรภ์ไทย</mat-checkbox>
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <div class="pl-3 py-3">
+
+                        <button mat-raised-button color="primary" [hidden]="btnCheck" (click)="todoSave()"><i class="fa fa-save"></i> ยืนยัน</button> &nbsp;
+                        <button mat-raised-button color="warn" (click)=" getback()"><i class="fa fa-arrow-left"></i> back</button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

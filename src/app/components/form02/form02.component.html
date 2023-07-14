@@ -1,0 +1,499 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>การสมัครสอบ</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="p-2">
+                        <div class="row pt-4">
+                            <div class="col-md-12">
+                                <section class="example-section">
+                                    <h4><i class="fa fa-book"></i> การสมัครสอบขั้นที่ 3 ภาคปฏิบัติแต่ละด้าน ครั้งที่ 1/2566 สำหรับผู้ที่สำเร็จการศึกษาระดับปริญญาหรือประกาศนียบัตรเทียบเท่าปริญญา สาขาการแพทย์แผนไทย และต้องเป็ฯผู้สอบผ่านขั้นตอนที่ 1 (นับตั้งแต่การสอบประจำปี
+                                        2562-256) และต้องสอบผ่านขั้นตอนที่2 (นับตั้งแต่การสอบประจำปี 2563-2566)</h4>
+                                    <hr>
+                                </section>
+                            </div>
+                        </div>
+                        <section class="example-section">
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="MED" value="MED" [ngModelOptions]="{standalone: true}" (change)="onCheckInp('MED')">ด้านเวชกรรมไทย</mat-checkbox><br>
+                                        <label for="" class="pl-2">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 1 วิชาพื้นฐานวิชาชีพฯ
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 2 ภาคทฤษฎีด้านเวชกรรมไทย
+                    </label><br>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!MED">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="MED_YEAR" [ngModelOptions]="{standalone: true}" [disabled]="!MED">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <label for="">&nbsp;</label><br>
+                                    <label for="" class="pl-2">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 2 ภาคทฤษฎีด้านเวชกรรมไทย
+                    </label>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!MED">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="MED_YEAR2" [ngModelOptions]="{standalone: true}" [disabled]="!MED_YEAR">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="MAS" value="MAS" [ngModelOptions]="{standalone: true}" (change)="onCheckInp('MAS')">ด้านการนวดไทย</mat-checkbox><br>
+                                        <label for="" class="pl-2">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 1 วิชาพื้นฐานวิชาชีพฯ
+                    </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!MAS">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="MAS_YEAR" [ngModelOptions]="{standalone: true}" [disabled]="!MAS">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <p>
+                                        <label for="">&nbsp;</label><br>
+                                        <label for="">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 2 ภาคทฤษฎีด้านเภสัชกรรมไทยเมื่อ
+                    </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!MAS">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="MAS_YEAR2" [ngModelOptions]="{standalone: true}" [disabled]="!MAS_YEAR">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="PHA" value="PHA" [ngModelOptions]="{standalone: true}" (change)="onCheckInp('PHA')">ด้านเภสัชกรรมไทย</mat-checkbox><br>
+                                        <label for="" class="pl-2">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 1 วิชาพื้นฐานวิชาชีพฯ <br>
+                    </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!PHA">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="PHA_YEAR" [ngModelOptions]="{standalone: true}" [disabled]="!PHA">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <p>
+                                        <label for="">&nbsp;</label><br>
+                                        <label for="" class="pl-2">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 2 ภาคทฤษฎีด้านผดุงครรภ์ไทย
+                    </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!PHA">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="PHA_YEAR2" [ngModelOptions]="{standalone: true}" [disabled]="!PHA_YEAR">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <p>
+                                        <mat-checkbox [(ngModel)]="MID" value="MID" [ngModelOptions]="{standalone: true}" (change)="onCheckInp('MID')">ด้านผดุงครรภ์ไทย</mat-checkbox><br>
+                                        <label for="" class="pl-2">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 1 วิชาพื้นฐานวิชาชีพฯ <br>
+                    </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!MID">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="MID_YEAR" [ngModelOptions]="{standalone: true}" [ngModelOptions]="{standalone: true}" [disabled]="!MID">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row pt-1">
+                                <div class="col-md-8">
+                                    <p>
+                                        <label for="">&nbsp;</label><br>
+                                        <label for="" class="pl-2">
+                      ข้าพเจ้าสอบผ่านขั้นตอนที่ 2 ภาคทฤษฎีด้านนวดไทย
+                    </label>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-hint style="color: red;" [hidden]="!MID">* เลือกปี</mat-hint> <br>
+                                    <mat-form-field>
+                                        <mat-label>เลือกปี</mat-label>
+                                        <mat-select [(ngModel)]="MID_YEAR2" [ngModelOptions]="{standalone: true}" [ngModelOptions]="{standalone: true}" [disabled]="!MID_YEAR">
+                                            <mat-option *ngFor="let item of arryear;" value="{{item}}">{{item}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                        </section>
+                        <div class="row pt-4">
+                            <div class="col-md-12" style="background-color: rgb(251, 220, 180); padding-top: 10px;">
+                                <h2><i class="fa fa-user"></i> ข้อมูลส่วนตัว</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row pt-3">
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font> คำนำหน้าชื่อ
+                    </label><br>
+                                        <mat-form-field>
+                                            <mat-label>เลือก</mat-label>
+                                            <mat-select [(ngModel)]="PRE_NAME" [ngModelOptions]="{standalone: true}">
+                                                <mat-option class="form-control" value="1">นาย</mat-option>
+                                                <mat-option class="form-control" value="1">นาง</mat-option>
+                                                <mat-option class="form-control" value="1">นางสาว</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>ชื่อ
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="FIRST_NAME_TH" [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>นามสกุล
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="LAST_NAME_TH" [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row pt-3">
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>Prefix
+                    </label> <br>
+                                        <mat-form-field>
+                                            <mat-label>select</mat-label>
+                                            <mat-select>
+                                                <mat-option class="form-control" value="1">Mr.</mat-option>
+                                                <mat-option class="form-control" value="1">Ms.</mat-option>
+                                                <mat-option class="form-control" value="1">
+                                                    <Main>Miss.</Main>
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <Fieldset>
+                        <font style="color: red;">*</font>Firstname
+                      </Fieldset>
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="FIRST_NAME_EN" [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>Lastname
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="LAST_NAME_EN" [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12  text-center">
+                                <font style="color: red; font-weight: bold;">โปรดระบุชื่อและนามสกุลของท่าน ให้ตรงตามที่ปรากฏในบัตรประจำตัวประชาชนโดยไม่ต้องกรอกคำนำหน้าชื่อ
+                                </font>
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-md-4">
+                                <label for="">
+                  <Fieldset>
+                    <font style="color: red;">*</font>สัญชาติ
+                  </Fieldset>
+                </label>
+                                <input type="text" class="form-control" [(ngModel)]="NATIONARY" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">
+                  <Fieldset>
+                    <font style="color: red;">*</font>วัน เดือน ปีเกิด
+                  </Fieldset>
+                </label>
+
+
+                                <mat-form-field>
+                                    <mat-label style="font-weight: bold;">
+                                        <h4 for="citizen_id"> วัน/เดือน/ปีเกิด <span class="remark">*</span></h4>
+                                    </mat-label>
+                                    <input matInput [matDatepicker]="picker" [(ngModel)]="_DATE_OF_BIRTH" (dateChange)="onSelectDate()">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker ngDefaultControl></mat-datepicker>
+
+                                </mat-form-field><br>
+                                <mat-hint style="color: red;">อายุต้องไม่ต่ำกว่า 18 ปี นับถึงวันปิดรัสมัคร</mat-hint>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">
+                  <Fieldset>
+                    เลขประจำตัวบัตรประชาชน
+                  </Fieldset>
+                </label>
+                                <input type="text" class="form-control" [(ngModel)]="CITIZEN" numbersOnly disabled="">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-md-4">
+                                <label for="">
+                  <Fieldset>เลขที่หนังสือเดินทาง (Passport No.) </Fieldset>
+                </label>
+                                <input type="text" class="form-control" [(ngModel)]="PASSPORT_NO">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">
+                  <Fieldset>
+                    <font style="color: red;">*</font>เป็นผู้พิการทางสายตา
+                  </Fieldset>
+                </label>
+                                <input type="text" class="form-control" [(ngModel)]="ACCESSIBILITY">
+                            </div>
+                            <div class="col-md-4"> </div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <div class="col-md-12" style="background-color: rgb(251, 220, 180); padding-top: 10px;">
+                                <h2><i class="fa fa-user"></i> ข้อมูลที่อยู่</h2>
+
+                            </div>
+                        </div>
+                        <!-- div src address-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row pt-3">
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>ที่อยู่ที่สามารถติดต่อได้
+                    </label><br>
+                                        <input type="text" class="form-control" [(ngModel)]="ADDRESS">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>อาคาร
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="BUILDING">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>หมู่ที่
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="MOO">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row pt-3">
+                                    <div class="col-md-4">
+                                        <label for="">
+                      <font style="color: red;">*</font>ตรอก/ซอย
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="ALLEY">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="">
+                      <font style="color: red;">*</font> ถนน
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="STREET">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-md-12 ">
+                                <div class="div-padding-left">
+                                    <h4 for="citizen_id"> <i class="fa fa-search"></i> ค้นหาข้อมูลจังหวัดด้วยรหัสไปรษณีย์
+                                        <span class="remark" style="color: red;">*</span>
+                                    </h4>
+
+                                    <mat-form-field style="width: 100%;">
+                                        <mat-label>รหัสไปรษณีย์</mat-label>
+                                        <input matInput placeholder="กรอกรหัสไปรษณีย์" list="zipcode" matInput (input)="onChangeEvent($event)">
+                                    </mat-form-field>
+
+                                    <div *ngFor="let item of dataAddress ">
+                                        <button class="button" mat-raised-button color="success" (click)="addAddress(item,1)">
+                      {{ item.amphoe }} >> {{ item.district }} >> {{ item.province }} >>
+                      {{ item.zipcode }}
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row pt-3">
+                                    <div class="col-md-3">
+                                        <label for="">
+                      <font style="color: red;">*</font>ตำบล/แขวง
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="DISTRICT" disabled>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">
+                      <font style="color: red;">*</font>อำเภอ/เขต
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="STATE" disabled>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">
+                      <font style="color: red;">*</font>จังหวัด
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="PROVINCE" disabled>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">
+                      <font style="color: red;">*</font>รหัสไปรษณีย์
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="ZIPCODE" numbersOnly disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row pt-3">
+                                    <div class="col-md-3">
+                                        <label for="">โทรศัพท์บ้าน</label>
+                                        <input type="text" class="form-control" [(ngModel)]="HOME_TELEPHONE" numbersOnly>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">
+                      <font style="color: red;">*</font>โทรศัพท์มือถิอ
+                    </label>
+                                        <input type="text" class="form-control" [(ngModel)]="MOBILE_NO" numbersOnly>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">
+                      <font style="color: red;">*</font>E-mail
+                    </label>
+                                        <input type="email" class="form-control" [(ngModel)]="E_MAIL" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Line ID</label>
+                                        <input type="text" class="form-control" [(ngModel)]="LINE_ID">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row pt-4">
+                            <div class="col-md-12" style="background-color: rgb(251, 220, 180); padding-top: 10px;">
+                                <h2><i class="fa fa-user"></i>
+                                    <font style="color: red;">*</font> ข้อมูลกาศึกษา
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row pt-4 pl-3">
+                            <div class="col-md-12">
+                                <mat-radio-group aria-label="Select an option" [(ngModel)]="EDU_STATUS">
+                                    <mat-radio-button value="1">
+                                        ได้รับปริญญาหรือประกาศนียบัตรเทียบเท่าปริญญาสาขาการแพทย์ผนไทย จาก
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="row pt-1 pl-3">
+                            <div class="col-md-7">
+                                <mat-form-field style="width: 100%;">
+                                    <mat-label>เลือก</mat-label>
+                                    <mat-select required [(ngModel)]="EDU_FROM" [disabled]="!EDU_STATUS">
+                                        <mat-option *ngFor="let item of EDU_ARR;" value="{{item.UNIV_ID}}">{{item.UNIV_NAME}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4">
+                                <mat-form-field>
+                                    <mat-label>เลือกปี</mat-label>
+                                    <mat-select [(ngModel)]="EDU_YEAR" [ngModelOptions]="{standalone: true}" [disabled]="!EDU_FROM">
+                                        <mat-option *ngFor="let item of EDU_ARR_YEAR ;" value="{{item}}">{{item}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 " style="text-align: center;">
+                                <hr>
+                                <div class="p-1">
+                                    <mat-checkbox [(ngModel)]="chkbox" value="1">
+                                    </mat-checkbox>
+                                    <font style="font-weight: bold; padding-top: 5%; text-align: left;">
+                                        ข้าพเจ้ายินยอมให้สภาแพทย์แผนไทยเก็บรวบรวมให้และเปิดเผยข้อมูลส่วนบุคล เพื่อนำไปใช้ตามวัตถุประสงค์ต่างๆ ของทางสภาแพทย์แผนไทย</font> <br>
+                                    <div class="pt-1"></div>
+                                    <button mat-raised-button color="primary" type="submit" [disabled]="" (click)="todoSave()" [disabled]="!MED && !MAS &&!PHA && !MID
+                                || !chkbox || !EDU_STATUS ||!EDU_FROM ||!EDU_YEAR ">
+                    <i class="fa fa-save"></i> ยืนยัน</button>&nbsp;
+                                    <button mat-raised-button color="warn" (click)="cancle()">
+                    <i class="fa fa-close"></i> ยกเลิก
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
